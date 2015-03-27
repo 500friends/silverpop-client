@@ -1,0 +1,34 @@
+<Envelope>
+  <Body>
+    <ScheduleMailing>
+      <TEMPLATE_ID>1000</TEMPLATE_ID>
+      <LIST_ID>100</LIST_ID>
+      <MAILING_NAME>New Mailing Name</MAILING_NAME>
+      <SEND_HTML/>
+      <SEND_AOL/>
+      <SEND_TEXT/>
+      <SUBJECT>This is the new subject</SUBJECT>
+      <FROM_NAME>Senders Name</FROM_NAME>
+      <FROM_ADDRESS>sender@domain.com</FROM_ADDRESS>
+      <REPLY_TO>sender@domain.com</REPLY_TO>
+      <VISIBILITY>0</VISIBILITY>
+      <PARENT_FOLDER_PATH>Sent Folder Name</PARENT_FOLDER_PATH>
+      <CREATE_PARENT_FOLDER/>
+      <SCHEDULED>10/13/2011 12:00:00 AM</SCHEDULED>
+      <SUPPRESSION_LISTS>
+        <SUPPRESSION_LIST_ID>37782</SUPPRESSION_LIST_ID>
+        <SUPPRESSION_LIST_ID>37744</SUPPRESSION_LIST_ID>
+      </SUPPRESSION_LISTS>
+      <SUBSTITUTIONS>
+        <SUBSTITUTION>
+          <NAME>Sub_Value_1</NAME>
+          <VALUE>The value I would like to put in my mailing.</VALUE>
+        </SUBSTITUTION>
+        <SUBSTITUTION>
+          <NAME>Sub_Value_2</NAME>
+          <VALUE>Another value I would like to put in my mailing.</VALUE>
+        </SUBSTITUTION>
+      </SUBSTITUTIONS>
+    </ScheduleMailing>
+  </Body>
+</Envelope>

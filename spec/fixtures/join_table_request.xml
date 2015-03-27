@@ -1,0 +1,16 @@
+<Envelope>
+  <Body>
+    <JoinTable>
+      <TABLE_NAME>Shared/Web Analytics/Purchases</TABLE_NAME>
+      <LIST_ID>65745</LIST_ID>
+      <MAP_FIELD>
+        <LIST_FIELD>ItemID</LIST_FIELD>
+        <TABLE_FIELD>Item ID</TABLE_FIELD>
+      </MAP_FIELD>
+      <MAP_FIELD>
+        <LIST_FIELD>PurchPrice</LIST_FIELD>
+        <TABLE_FIELD>Purchase Price</TABLE_FIELD>
+      </MAP_FIELD>
+    </JoinTable>
+  </Body>
+</Envelope>

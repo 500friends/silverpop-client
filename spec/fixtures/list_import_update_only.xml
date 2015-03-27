@@ -1,0 +1,33 @@
+<LIST_IMPORT>
+  <LIST_INFO>
+    <ACTION>UPDATE_ONLY</ACTION>
+    <LIST_ID>50194</LIST_ID>
+    <FILE_TYPE>0</FILE_TYPE>
+    <HASHEADERS>true</HASHEADERS>
+  </LIST_INFO>
+  <SYNC_FIELDS>
+    <SYNC_FIELD>
+      <NAME>EMAIL</NAME>
+    </SYNC_FIELD>
+    <SYNC_FIELD>
+      <NAME>Customer Id</NAME>
+    </SYNC_FIELD>
+  </SYNC_FIELDS>
+  <MAPPING>
+    <COLUMN>
+      <INDEX>1</INDEX>
+      <NAME>EMAIL</NAME>
+      <INCLUDE>true</INCLUDE>
+    </COLUMN>
+    <COLUMN>
+      <INDEX>2</INDEX>
+      <NAME>Customer Id</NAME>
+      <INCLUDE>true</INCLUDE>
+    </COLUMN>
+    <COLUMN>
+      <INDEX>3</INDEX>
+      <NAME>First_Name</NAME>
+      <INCLUDE>true</INCLUDE>
+    </COLUMN>
+  </MAPPING>
+</LIST_IMPORT>

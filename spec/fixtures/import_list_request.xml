@@ -1,0 +1,8 @@
+<Envelope>
+  <Body>
+    <ImportList>
+      <MAP_FILE>list_import_map.xml</MAP_FILE>
+      <SOURCE_FILE>list_create.csv</SOURCE_FILE>
+    </ImportList>
+  </Body>
+</Envelope>

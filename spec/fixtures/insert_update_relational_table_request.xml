@@ -1,0 +1,24 @@
+<Envelope>
+  <Body>
+    <InsertUpdateRelationalTable>
+      <TABLE_ID>86767</TABLE_ID>
+      <ROWS>
+        <ROW>
+          <COLUMN name="Record Id"><![CDATA[GHbjh73643hsdiy]]></COLUMN>
+          <COLUMN name="Purchase Date"><![CDATA[01/09/1975]]></COLUMN>
+          <COLUMN name="Product Id"><![CDATA[123454]]></COLUMN>
+        </ROW>
+        <ROW>
+          <COLUMN name="Record Id"><![CDATA[WStfh73643hsdgw]]></COLUMN>
+          <COLUMN name="Purchase Date"><![CDATA[02/11/1980]]></COLUMN>
+          <COLUMN name="Product Id"><![CDATA[45789]]></COLUMN>
+        </ROW>
+        <ROW>
+          <COLUMN name="Record Id"><![CDATA[Yuhbh73643hsfgh]]></COLUMN>
+          <COLUMN name="Purchase Date"><![CDATA[05/10/1980]]></COLUMN>
+          <COLUMN name="Product Id"><![CDATA[4766454]]></COLUMN>
+        </ROW>
+      </ROWS>
+    </InsertUpdateRelationalTable>
+  </Body>
+</Envelope>

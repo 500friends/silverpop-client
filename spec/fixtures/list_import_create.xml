@@ -1,0 +1,34 @@
+<LIST_IMPORT>
+  <LIST_INFO>
+    <ACTION>CREATE</ACTION>
+    <LIST_NAME>Premier Accts</LIST_NAME>
+    <LIST_VISIBILITY>0</LIST_VISIBILITY>
+    <FILE_TYPE>0</FILE_TYPE>
+    <HASHEADERS>true</HASHEADERS>
+  </LIST_INFO>
+  <COLUMNS>
+    <COLUMN>
+      <NAME>EMAIL</NAME>
+      <TYPE>9</TYPE>
+      <IS_REQUIRED>true</IS_REQUIRED>
+    </COLUMN>
+    <COLUMN>
+      <NAME>CustID</NAME>
+      <TYPE>0</TYPE>
+      <IS_REQUIRED>true</IS_REQUIRED>
+      <KEY_COLUMN>true</KEY_COLUMN>
+    </COLUMN>
+  </COLUMNS>
+  <MAPPING>
+    <COLUMN>
+      <INDEX>1</INDEX>
+      <NAME>EMAIL</NAME>
+      <INCLUDE>true</INCLUDE>
+    </COLUMN>
+    <COLUMN>
+      <INDEX>2</INDEX>
+      <NAME>CustID</NAME>
+      <INCLUDE>true</INCLUDE>
+    </COLUMN>
+  </MAPPING>
+</LIST_IMPORT>

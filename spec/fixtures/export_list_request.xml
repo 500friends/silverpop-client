@@ -1,0 +1,17 @@
+<Envelope>
+  <Body>
+    <ExportList>
+      <LIST_ID>59294</LIST_ID>
+      <EXPORT_TYPE>ALL</EXPORT_TYPE>
+      <EXPORT_FORMAT>CSV</EXPORT_FORMAT>
+      <ADD_TO_STORED_FILES/>
+      <DATE_START>07/25/2011 12:12:11</DATE_START>
+      <DATE_END>09/30/2011 14:14:11</DATE_END>
+      <EXPORT_COLUMNS>
+        <COLUMN>FIRST_NAME</COLUMN>
+        <COLUMN>INITIAL</COLUMN>
+        <COLUMN>LAST_NAME</COLUMN>
+      </EXPORT_COLUMNS>
+    </ExportList>
+  </Body>
+</Envelope>

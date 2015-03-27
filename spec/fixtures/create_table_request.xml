@@ -1,0 +1,25 @@
+<Envelope>
+  <Body>
+    <CreateTable>
+      <TABLE_NAME>Purchases</TABLE_NAME>
+      <COLUMNS>
+        <COLUMN>
+          <NAME>Record Id</NAME>
+          <TYPE>NUMERIC</TYPE>
+          <IS_REQUIRED>true</IS_REQUIRED>
+          <KEY_COLUMN>true</KEY_COLUMN>
+        </COLUMN>
+        <COLUMN>
+          <NAME>Purchase Date</NAME>
+          <TYPE>DATE</TYPE>
+          <IS_REQUIRED>true</IS_REQUIRED>
+        </COLUMN>
+        <COLUMN>
+          <NAME>Product Id</NAME>
+          <TYPE>NUMERIC</TYPE>
+          <IS_REQUIRED>true</IS_REQUIRED>
+        </COLUMN>
+      </COLUMNS>
+    </CreateTable>
+  </Body>
+</Envelope>

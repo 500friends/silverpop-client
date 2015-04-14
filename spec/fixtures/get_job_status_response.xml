@@ -1,0 +1,60 @@
+<Envelope>
+  <Body>
+    <RESULT>
+      <SUCCESS>TRUE</SUCCESS>
+      <JOB_ID>789052</JOB_ID>
+      <JOB_STATUS>COMPLETE</JOB_STATUS>
+      <JOB_DESCRIPTION>Creating new contact source, Master Database</JOB_DESCRIPTION>
+      <PARAMETERS>
+        <PARAMETER>
+          <NAME>NOT_ALLOWED</NAME>
+          <VALUE>0</VALUE>
+        </PARAMETER>
+        <PARAMETER>
+          <NAME>LIST_ID</NAME>
+          <VALUE>116347</VALUE>
+        </PARAMETER>
+        <PARAMETER>
+          <NAME>RESUL TS_FILE_NAME</NAME>
+          <VALUE>1241474.res</VALUE>
+        </PARAMETER>
+        <PARAMETER>
+          <NAME>SQL_ADDED</NAME>
+          <VALUE>65535</VALUE>
+        </PARAMETER>
+        <PARAMETER>
+          <NAME>DUPLICATES</NAME>
+          <VALUE>0</VALUE>
+        </PARAMETER>
+        <PARAMETER>
+          <NAME>TOTAL_ROWS</NAME>
+          <VALUE>65535</VALUE>
+        </PARAMETER>
+        <PARAMETER>
+          <NAME>ERROR_FILE_NAME</NAME>
+          <VALUE>1241474.err</VALUE>
+        </PARAMETER>
+        <PARAMETER>
+          <NAME>LIST_NAME</NAME>
+          <VALUE>Big List</VALUE>
+        </PARAMETER>
+        <PARAMETER>
+          <NAME>BAD_ADDRESSES</NAME>
+          <VALUE>0</VALUE>
+        </PARAMETER>
+        <PARAMETER>
+          <NAME>SQL_UPDATED</NAME>
+          <VALUE>0</VALUE>
+        </PARAMETER>
+        <PARAMETER>
+          <NAME>BAD_RECORDS</NAME>
+          <VALUE>0</VALUE>
+        </PARAMETER>
+        <PARAMETER>
+          <NAME>TOTAL_VALID</NAME>
+          <VALUE>65535</VALUE>
+        </PARAMETER>
+      </PARAMETERS>
+    </RESULT>
+  </Body>
+</Envelope>

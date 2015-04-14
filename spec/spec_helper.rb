@@ -6,6 +6,7 @@ require 'webmock/rspec'
 RSpec.configure do |config|
   config.expect_with(:rspec) { |c| c.syntax = :should }
   config.raise_errors_for_deprecations!
+  config.mock_with :mocha
 end
 
 def stub_post(url)
@@ -24,6 +25,10 @@ end
 def fixture_content(file)
   f = fixture(file)
   f.read.gsub!(/\s+/, ' ').gsub!(/>\s*</, "><")
+end
+
+def fixture_xml_content(file)
+  ::MultiXml.parse(fixture_content(file))
 end
 
 def engage_response(file)

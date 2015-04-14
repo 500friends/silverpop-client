@@ -18,20 +18,19 @@ module Silverpop
     attr_accessor :access_token
 
     def initialize(options={})
+      @client_id = options[:client_id]
+      @client_secret = options[:client_secret]
+      @refresh_token = options[:refresh_token]
+      @auth_url = options[:auth_url] || DEFAULT_OAUTH_TOKEN_URL
       @xmlapi_url = options[:xmlapi_url] || DEFAULT_XMLAPI_URL
       @xtmail_url = options[:xtmail_url] || DEFAULT_XTMAIL_URL
+      @regenerate_token = options[:regenerate_token]
       @access_token = options[:access_token] ||
-          generate_access_token(options[:client_id], options[:client_secret], options[:refresh_token], options[:auth_url])
+          Client::generate_access_token(@client_id, @client_secret, @refresh_token, @auth_url)
     end
 
-    def generate_access_token(client_id, client_secret, refresh_token, auth_url = DEFAULT_OAUTH_TOKEN_URL)
-      @client_id = client_id
-      @client_secret = client_secret
-      @refresh_token = refresh_token
-      @auth_url = auth_url
-      @client = OAuth2::Client.new(client_id, client_secret, site: @auth_url)
-      oauth_token = OAuth2::AccessToken.from_hash(@client, refresh_token: refresh_token).refresh!
-      oauth_token.token
+    def regenerate_access_token
+      @access_token = Client::generate_access_token(@client_id, @client_secret, @refresh_token, @auth_url)
     end
 
     def connection
@@ -47,10 +46,23 @@ module Silverpop
     end
 
     def method_missing(method, *args, &block)
-      if engage_request.respond_to?(method)
-        return engage_request.invoke_api(method, *args, &block)
-      elsif transact_request.respond_to?(method)
-        return transact_request.invoke_api(method, *args, &block)
+      retries = @regenerate_token.to_i
+      begin
+        if engage_request.respond_to?(method)
+          res = engage_request.invoke_api(method, *args, &block)
+          raise Silverpop::UserSessionInvalidOrExpired if @regenerate_token && res.errorid.to_i == 145
+          return res
+        elsif transact_request.respond_to?(method)
+          return transact_request.invoke_api(method, *args, &block)
+        end
+      rescue Silverpop::UserSessionInvalidOrExpired => e
+        if retries > 0
+          regenerate_access_token
+          retries -= 1
+          retry
+        else
+          raise e
+        end
       end
       super
     end
@@ -69,6 +81,12 @@ module Silverpop
 
     def invoke(method, *args, &block)
       engage_request.invoke_api(method, *args, &block) || transact_request.invoke_api(method, *args, &block)
+    end
+
+    def self.generate_access_token(client_id, client_secret, refresh_token, auth_url = DEFAULT_OAUTH_TOKEN_URL)
+      client = OAuth2::Client.new(client_id, client_secret, site: auth_url)
+      oauth_token = OAuth2::AccessToken.from_hash(client, refresh_token: refresh_token).refresh!
+      oauth_token.token
     end
 
     def self.new_connection(access_token)

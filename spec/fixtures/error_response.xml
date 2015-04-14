@@ -1,0 +1,20 @@
+<Envelope>
+  <Body>
+    <RESULT>
+      <SUCCESS>false</SUCCESS>
+    </RESULT>
+    <Fault>
+      <Request/>
+      <FaultCode/>
+      <FaultString>User session is invalid or has expired.</FaultString>
+      <detail>
+        <error>
+          <errorid>145</errorid>
+        </error>
+      </detail>
+      <module/>
+      <class>SP.API</class>
+      <method/>
+    </Fault>
+  </Body>
+</Envelope>

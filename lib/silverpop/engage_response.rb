@@ -4,7 +4,7 @@ require 'faraday_middleware'
 module Silverpop
   class EngageResponse
 
-    attr_accessor :response, :result, :success, :job_id, :fault
+    attr_accessor :response, :result, :success, :job_id, :fault, :errorid
 
     def initialize(response)
       @response = response
@@ -12,6 +12,7 @@ module Silverpop
       @success = @result['SUCCESS'] == 'TRUE'
       @job_id = @success ? @result['JOB_ID'] : nil
       @fault = @success ? nil : response['Envelope']['Body']['Fault']
+      @errorid = @fault ? @fault['detail']['error']['errorid'] : nil
     end
 
     def method_missing(method, *args, &block)

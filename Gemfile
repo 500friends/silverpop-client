@@ -3,10 +3,13 @@ source 'https://rubygems.org'
 gemspec
 
 gem 'faraday_middleware'
-gem 'rspec-legacy_formatters'
+
+group :development, :test do
+  gem 'rspec-legacy_formatters'
+end
 
 group :test do
   gem 'rspec'
-  gem 'rspec-legacy_formatters'
   gem 'webmock'
+  gem 'mocha'
 end

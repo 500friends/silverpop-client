@@ -1,0 +1,8 @@
+<Envelope>
+  <Body>
+    <ImportTable>
+      <MAP_FILE>table_import_map.xml</MAP_FILE>
+      <SOURCE_FILE>table_create.csv</SOURCE_FILE>
+    </ImportTable>
+  </Body>
+</Envelope>

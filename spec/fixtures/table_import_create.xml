@@ -1,0 +1,45 @@
+<TABLE_IMPORT>
+  <TABLE_INFO>
+    <ACTION>CREATE</ACTION>
+    <TABLE_NAME>Purchases</TABLE_NAME>
+    <FILE_TYPE>0</FILE_TYPE>
+    <HASHEADERS>true</HASHEADERS>
+  </TABLE_INFO>
+  <COLUMNS>
+    <COLUMN>
+      <NAME>Customer ID</NAME>
+      <TYPE>0</TYPE>
+      <IS_REQUIRED>true</IS_REQUIRED>
+      <KEY_COLUMN>true</KEY_COLUMN>
+    </COLUMN>
+    <COLUMN>
+      <NAME>Purchase Date</NAME>
+      <TYPE>3</TYPE>
+      <IS_REQUIRED>true</IS_REQUIRED>
+      <KEY_COLUMN>true</KEY_COLUMN>
+    </COLUMN>
+    <COLUMN>
+      <NAME>Product ID</NAME>
+      <TYPE>0</TYPE>
+      <IS_REQUIRED>true</IS_REQUIRED>
+      <DEFAULT_VALUE/>
+    </COLUMN>
+  </COLUMNS>
+  <MAPPING>
+    <COLUMN>
+      <INDEX>1</INDEX>
+      <NAME>Customer ID</NAME>
+      <INCLUDE>true</INCLUDE>
+    </COLUMN>
+    <COLUMN>
+      <INDEX>2</INDEX>
+      <NAME>Purchase Date</NAME>
+      <INCLUDE>true</INCLUDE>
+    </COLUMN>
+    <COLUMN>
+      <INDEX>3</INDEX>
+      <NAME>Product ID</NAME>
+      <INCLUDE>true</INCLUDE>
+    </COLUMN>
+  </MAPPING>
+</TABLE_IMPORT>

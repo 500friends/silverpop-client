@@ -5,8 +5,8 @@ module Silverpop
     LIST_TYPE_SEED_LIST = 6
     LIST_TYPE_SUPPRESSION_LIST = 13
 
-    LIST_VISIBILITY_PRIVATE = 0
-    LIST_VISIBILITY_SHARED = 1
+    VISIBILITY_PRIVATE = 0
+    VISIBILITY_SHARED = 1
 
     FILE_TYPE_CSV = 0
     FILE_TYPE_TSV = 1
@@ -140,6 +140,43 @@ module Silverpop
               }
             end
           }
+        }
+      }
+    end
+
+    def import_table(map_file, source_file)
+      xml_envelope { |x|
+        x.ImportTable {
+          x.MAP_FILE map_file
+          x.SOURCE_FILE source_file
+        }
+      }
+    end
+
+    def table_import(action, table_id_or_name, file_type = 0, hasheaders = true, options = {}, columns = [], mapping = [])
+      xml = Builder::XmlMarkup.new
+      xml.TABLE_IMPORT { |x|
+        x.TABLE_INFO {
+          x.ACTION action
+          if ['CREATE'].include?(action)
+            x.TABLE_NAME table_id_or_name
+          else
+            x.TABLE_ID table_id_or_name
+          end
+          x.TABLE_VISIBILITY options[:table_visibility] if options[:table_visibility]
+          x.FILE_TYPE file_type
+          x.HASHEADERS hasheaders
+        }
+        build_options(x, options)
+        x.COLUMNS { build_columns(x, columns) } unless columns.empty?
+        x.MAPPING { build_columns(x, mapping) }
+      }
+    end
+
+    def delete_table(options)
+      xml_envelope { |x|
+        x.DeleteTable {
+          build_options(x, options)
         }
       }
     end

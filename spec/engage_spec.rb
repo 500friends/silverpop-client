@@ -22,7 +22,7 @@ describe Silverpop::Engage do
           from_name: 'Senders Name',
           from_address: 'sender@domain.com',
           reply_to: 'sender@domain.com',
-          visibility: Silverpop::Engage::LIST_VISIBILITY_PRIVATE,
+          visibility: Silverpop::Engage::VISIBILITY_PRIVATE,
           parent_folder_path: 'Sent Folder Name',
           create_parent_folder: nil,
           scheduled: '10/13/2011 12:00:00 AM',
@@ -56,7 +56,7 @@ describe Silverpop::Engage do
       mapping = [{index: 1, name: 'EMAIL', include: true},
                  {index: 2, name: 'CustID', include: true}]
 
-      request = @request.list_import('CREATE', 'Premier Accts', Silverpop::Engage::LIST_VISIBILITY_PRIVATE, Silverpop::Engage::FILE_TYPE_CSV, true, {}, columns, mapping)
+      request = @request.list_import('CREATE', 'Premier Accts', Silverpop::Engage::VISIBILITY_PRIVATE, Silverpop::Engage::FILE_TYPE_CSV, true, {}, columns, mapping)
       request.should == fixture_content('list_import_create.xml')
     end
 
@@ -66,7 +66,7 @@ describe Silverpop::Engage do
                  {index: 2, name: 'Customer Id', include: true},
                  {index: 3, name: 'First_Name', include: true}]
 
-      request = @request.list_import('UPDATE_ONLY', 50194, Silverpop::Engage::LIST_VISIBILITY_PRIVATE, Silverpop::Engage::FILE_TYPE_CSV, true, options, [], mapping)
+      request = @request.list_import('UPDATE_ONLY', 50194, Silverpop::Engage::VISIBILITY_PRIVATE, Silverpop::Engage::FILE_TYPE_CSV, true, options, [], mapping)
       request.should == fixture_content('list_import_update_only.xml')
     end
 
@@ -84,7 +84,7 @@ describe Silverpop::Engage do
                  {index: 4, name: 'DateField1', include: true}]
       contact_lists = {contact_lists: [{contact_list_id: 31279}, {contact_list_id: 54564}]}
 
-      request = @request.list_import('ADD_AND_UPDATE', 50194, Silverpop::Engage::LIST_VISIBILITY_PRIVATE, Silverpop::Engage::FILE_TYPE_CSV, true, {}, columns, mapping, contact_lists)
+      request = @request.list_import('ADD_AND_UPDATE', 50194, Silverpop::Engage::VISIBILITY_PRIVATE, Silverpop::Engage::FILE_TYPE_CSV, true, {}, columns, mapping, contact_lists)
       request.should == fixture_content('list_import_add_and_update.xml')
     end
   end
@@ -150,4 +150,32 @@ describe Silverpop::Engage do
       r.should == fixture_content('insert_update_relational_table_request.xml')
     end
   end
+
+  describe "#import_table" do
+    it "should import a table" do
+      stub_engage_post("?access_token=test_token").
+          with(:body => fixture("import_table_request.xml")).
+          to_return(:status => 200, :body => fixture("import_table_response.xml"), :headers => {'Content-type' => "text/xml"})
+      map_file = 'table_import_map.xml'
+      source_file = 'table_create.csv'
+
+      request = @request.import_table(map_file, source_file)
+      request.should == fixture_content('import_table_request.xml')
+    end
+  end
+
+  describe "#table_import" do
+    it "should create a new table" do
+      columns = [{name: 'Customer ID', type: Silverpop::Engage::COLUMN_TYPE_TEXT, is_required: true, key_column: true},
+                 {name: 'Purchase Date', type: Silverpop::Engage::COLUMN_TYPE_DATE, is_required: true, key_column: true},
+                 {name: 'Product ID', type: Silverpop::Engage::COLUMN_TYPE_TEXT, is_required: true, default_value: nil}]
+      mapping = [{index: 1, name: 'Customer ID', include: true},
+                 {index: 2, name: 'Purchase Date', include: true},
+                 {index: 3, name: 'Product ID', include: true}]
+
+      request = @request.table_import('CREATE', 'Purchases', Silverpop::Engage::FILE_TYPE_CSV, true, {}, columns, mapping)
+      request.should == fixture_content('table_import_create.xml')
+    end
+  end
+
 end

@@ -91,11 +91,11 @@ module Silverpop
 
     def self.new_connection(access_token)
       Faraday.new do |conn|
-        conn.adapter Faraday.default_adapter
-        conn.request :oauth2, access_token
+        conn.authorization :Bearer, access_token
         conn.request :url_encoded
         conn.response :mashify
         conn.response :xml, :content_type => /\bxml$/
+        conn.adapter Faraday.default_adapter
       end
     end
 
